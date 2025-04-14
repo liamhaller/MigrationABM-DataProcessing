@@ -2,8 +2,10 @@
 
 # List of required packages
 required_packages <- c("tidyverse",  # For data manipulation
-                       "readxl",
-                       "here") # For reading Excel files
+                       "readxl", # For reading Excel files
+                       "here",
+                       'haven' #for reading stata files
+                       )
 
 
 
