@@ -4,8 +4,12 @@
 required_packages <- c("tidyverse",  # For data manipulation
                        "readxl", # For reading Excel files
                        "here",
-                       'haven' #for reading stata files
+                       'haven', #for reading stata files
+                       'readr',
+                       'stringr',
+                       'scales'
                        )
+
 
 
 

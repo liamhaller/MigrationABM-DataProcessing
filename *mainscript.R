@@ -36,7 +36,8 @@ turkstat_migration_prov_and_reason <- readRDS(here("data", "processed", "turksta
 
 turkstat_pop_age_prov_sex <- readRDS(here("data", "processed", "turkstat_pop_age_prov_sex.rds"))
 
+transmit <- readRDS(here("data", "processed", "Tur_complete.RDS"))
 
-
+meta <- readRDS(here("data", "processed", "turkey_germany_connections.rds"))
 
 
