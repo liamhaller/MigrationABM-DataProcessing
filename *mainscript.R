@@ -28,6 +28,13 @@ eurostat <- readRDS(here("data", "processed", "eurostat.rds"))
 
 turkstat_migration <- readRDS(here("data", "processed", "turkstat_migration.rds"))
 
+turkstat_migration_prov <- readRDS(here("data", "processed", "turkstat_migration_by_providence.rds"))
+
+turkstat_migration_cit_and_prov <- readRDS(here("data", "processed", "turkstat_migration_cit_and_prov.rds"))
+
+turkstat_migration_prov_and_reason <- readRDS(here("data", "processed", "turkstat_migration_prov_and_reason.rds"))
+
+turkstat_pop_age_prov_sex <- readRDS(here("data", "processed", "turkstat_pop_age_prov_sex.rds"))
 
 
 
