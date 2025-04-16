@@ -52,3 +52,10 @@ rsconnect/
 
 #Transmit data
 Tur_complete.RDS
+
+#Ignore large raw files
+.dta
+lits_iv.csv
+
+data/raw
+

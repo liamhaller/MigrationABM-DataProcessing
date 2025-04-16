@@ -40,4 +40,11 @@ transmit <- readRDS(here("data", "processed", "Tur_complete.RDS"))
 
 meta <- readRDS(here("data", "processed", "turkey_germany_connections.rds"))
 
+lits <-readRDS(here("data", "processed", "lits.rds"))
+
+wgi <- readRDS(here("data", "processed", "wgi.rds"))
+
+turkstat_econ_cpi <-readRDS(here("data", "processed", "turkstat_econ_cpi.rds"))
+
+turkstat_econ_unep <-readRDS(here("data", "processed", "turkstat_econ_unemployment.rds"))
 

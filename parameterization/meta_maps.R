@@ -158,8 +158,7 @@ connections_unique <- connections_with_names %>%
 
 sorted_connections <- connections_unique %>%
   group_by(fr_loc) %>%
-  dplyr::arrange(desc(scaled_sci)) %>%
-  filter(scaled_sci < 10000)
+  dplyr::arrange(desc(scaled_sci))
 
 
 

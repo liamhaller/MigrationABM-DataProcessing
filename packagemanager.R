@@ -7,7 +7,8 @@ required_packages <- c("tidyverse",  # For data manipulation
                        'haven', #for reading stata files
                        'readr',
                        'stringr',
-                       'scales'
+                       'scales',
+                       'lubridate' #For correcting excel dates
                        )
 
 
