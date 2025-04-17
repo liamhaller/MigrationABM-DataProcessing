@@ -48,3 +48,8 @@ turkstat_econ_cpi <-readRDS(here("data", "processed", "turkstat_econ_cpi.rds"))
 
 turkstat_econ_unep <-readRDS(here("data", "processed", "turkstat_econ_unemployment.rds"))
 
+turkstat_pop_age_gender <-readRDS(here("data", "processed", "turkstat_pop_age_gender.rds"))
+
+turkstat_pop_edu <-readRDS(here("data", "processed", "turkstat_pop_edu.rds"))
+
+

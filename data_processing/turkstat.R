@@ -156,3 +156,53 @@ head(unemployment_long)
 
 # Save the transformed data
 saveRDS(unemployment_long, here("data", "processed", "turkstat_econ_unemployment.rds"))
+
+
+
+
+
+# Education Level ---------------------------------------------------------
+
+#Downloaded from Turkstat databsae
+turkstat_pop_edu_path <- here("data", "raw", "education by prov_CLEANED.xls")
+
+turkstat_pop_edu <- read_xls(turkstat_pop_edu_path)
+
+
+# Assuming your data is stored in a dataframe called 'df'
+# Let's restructure the data using pivot_longer
+
+# First, identify the education categories
+edu_categories <- c("illiterate", "litwodiploma", "primarysch", "primaryedu",
+                    "lowersecondary", "uppersecondary", "university",
+                    "master", "doctorate", "unknown")
+
+# Now pivot the data
+df_long <- turkstat_pop_edu %>%
+  pivot_longer(
+    cols = starts_with(c("Total_", "Male_", "Female_")),
+    names_to = c("Gender", "Education"),
+    names_pattern = "(Total|Male|Female)_(.*)",
+    values_to = "Count"
+  ) %>%
+  # Filter out the 'general' category as it's the sum of all educational categories
+  filter(Education != "general") %>%
+  filter(Gender != "Total")
+
+saveRDS(df_long, here("data", "processed", "turkstat_pop_edu.rds"))
+
+
+# Calculate percentages by province, gender, and year
+df_percentages <- df_long %>%
+  # Group by relevant variables
+  group_by(year, `Province code`, Name, Gender) %>%
+  # Calculate the total per group to use as denominator
+  mutate(Total = sum(Count)) %>%
+  # Calculate percentage
+  mutate(Percentage = Count / Total * 100) %>%
+  # Ungroup to avoid issues with further operations
+  ungroup()
+
+
+
+
