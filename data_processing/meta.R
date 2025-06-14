@@ -18,6 +18,21 @@ saveRDS(turkey_germany_connections, here("data", "processed", "turkey_germany_co
 
 
 
+
+# Turkey-Turkey Connections -----------------------------------------------
+
+# Filter connections between Turkey and Germany
+turkey_turkey_connections <- social_connections %>%
+  filter(
+    (str_detect(user_loc, "^TR") & str_detect(fr_loc, "^TR"))
+  )
+
+# Save the filtered dataset as RDS file for model building
+saveRDS(turkey_turkey_connections, here("data", "processed", "turkey_turkey_connections.rds"))
+
+
+
+
 # Prelim Analysis ---------------------------------------------------------
 
 

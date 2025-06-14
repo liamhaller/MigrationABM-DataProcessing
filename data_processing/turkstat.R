@@ -206,3 +206,49 @@ df_percentages <- df_long %>%
 
 
 
+# Age & Gender by Province ------------------------------------------------
+
+#Downloaded from Turkstat databsae
+turkstat_pop_age_gender_path <- here("data", "raw", "age_gender.xls")
+
+turkstat_pop_age_gender <- read_xls(turkstat_pop_age_gender_path)
+
+
+# Assuming the data is stored in turkstat_pop_age_gender
+# First, let's pivot the age columns into rows
+pop_long <- turkstat_pop_age_gender %>%
+  pivot_longer(
+    cols = `0`:`75+`,
+    names_to = "Age",
+    values_to = "Population"
+  ) %>%
+  # Clean up the gender column by removing the bilingual labels
+  mutate(
+    gender = case_when(
+      gender == "Toplam-Total" ~ "Total",
+      gender == "Erkek-Male" ~ "Male",
+      gender == "Kadın-Female" ~ "Female"
+    )
+  )
+
+# For percentage calculations, we can add these
+pop_with_percentages <- pop_long %>%
+  # Remove Total rows as we'll calculate totals ourselves
+  filter(gender != "Total") %>%
+  # Group by all relevant variables except Population
+  group_by(Year, province, Age) %>%
+  # Calculate percentage by gender within each age group and province
+  mutate(
+    Total_Population = sum(Population),
+    Percentage = Population / Total_Population * 100
+  ) %>%
+  ungroup()
+
+# View the result
+head(pop_with_percentages)
+
+# If you want to save this to a CSV file
+saveRDS(pop_long, here("data", "processed", "turkstat_pop_age_gender.rds"))
+
+
+

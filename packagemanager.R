@@ -8,8 +8,16 @@ required_packages <- c("tidyverse",  # For data manipulation
                        'readr',
                        'stringr',
                        'scales',
-                       'lubridate' #For correcting excel dates
+                       'lubridate', #For correcting excel dates
+                       'sf',
+                       'viridis',
+                       "gganimate", #visualizations
+                       "rnaturalearth",
+                       "rnaturalearthdata",
+                       "patchwork"
                        )
+
+
 
 
 

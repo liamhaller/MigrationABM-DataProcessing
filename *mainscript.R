@@ -16,7 +16,9 @@ demig <- readRDS(here("data", "processed", "demig_data.rds"))
 
 impic <- readRDS(here("data", "processed", "impic_data.rds"))
 
-destatis_visa <- readRDS(here("data", "processed", "destatis_visa.rds"))
+destatis_all_permits <- readRDS(here("data", "processed", "all_permits_destatis.rds"))
+
+destatis_some_permits <- readRDS(here("data", "processed", "some_permits_destatis.rds"))
 
 destatis_entryandexit <- readRDS(here("data", "processed", "destatis_enterandexit.rds"))
 
